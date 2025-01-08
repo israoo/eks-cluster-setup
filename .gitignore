@@ -1,0 +1,13 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.override.tfvars
+*.lock.hcl
+*.tfplan
+
+# OS
+*.DS_Store
+
+# IDE - VSCode
+.vscode/*
