@@ -1,3 +1,23 @@
+variable "eks" {
+  description = "EKS cluster configuration."
+  type = object({
+    cluster_name    = string
+    cluster_version = string
+    worker_nodes = object({
+      node_group_name = string
+      ebs_volume = object({
+        size = number
+        type = string
+      })
+      instance_type              = string
+      desired_capacity           = number
+      min_size                   = number
+      max_size                   = number
+      max_unavailable_percentage = number
+    })
+  })
+}
+
 variable "vpc" {
   description = "VPC configuration."
   type = object({

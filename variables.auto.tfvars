@@ -1,3 +1,20 @@
+eks = {
+  cluster_name    = "eks-cluster"
+  cluster_version = "1.31"
+  worker_nodes = {
+    node_group_name = "eks-managed-node-group"
+    ebs_volume = {
+      size = 20
+      type = "gp2"
+    }
+    instance_type              = "t3a.medium"
+    desired_capacity           = 2
+    min_size                   = 1
+    max_size                   = 3
+    max_unavailable_percentage = 50
+  }
+}
+
 vpc = {
   cidr_block = "10.0.0.0/16"
   private_subnet_1 = {
