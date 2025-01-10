@@ -3,7 +3,7 @@ resource "aws_route_table" "private_route_table_1" { # Crea la tabla de rutas pr
 
   tags = {
     Environment = var.environment
-    Name = "eks-private-route-table-1"
+    Name        = "eks-private-route-table-1"
   }
 
   depends_on = [aws_vpc.eks_vpc]
