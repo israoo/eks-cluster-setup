@@ -39,8 +39,8 @@ resource "aws_launch_template" "eks_worker_node_template" { # Crea una plantilla
   tag_specifications { # Agrega tags a los recursos creados por la plantilla de lanzamiento
     resource_type = "instance"
     tags = {
-      Environment = var.environment
-      Service     = var.service
+      Environment = var.tags.environment
+      Service     = var.tags.service
       Role        = "worker-node"
     }
   }

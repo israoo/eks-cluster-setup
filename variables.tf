@@ -23,14 +23,12 @@ variable "eks" {
   })
 }
 
-variable "environment" {
-  description = "Environment name."
-  type        = string
-}
-
-variable "service" {
-  description = "Service name."
-  type        = string
+variable "tags" {
+  description = "Tags."
+  type = object({
+    environment = string
+    service     = string
+  })
 }
 
 variable "vpc" {
