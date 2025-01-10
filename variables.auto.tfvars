@@ -5,7 +5,7 @@ eks = {
     node_group_name = "eks-managed-node-group"
     ebs_volume = {
       size = 20
-      type = "gp2"
+      type = "gp3"
     }
     instance_type              = "t3a.medium"
     desired_capacity           = 2
