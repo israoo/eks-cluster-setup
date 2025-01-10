@@ -102,7 +102,34 @@ O configurando las variables de entorno `AWS_ACCESS_KEY_ID` y `AWS_SECRET_ACCESS
     kubectl get svc nginx
     ```
 
-    El servicio `nginx` tendrá un FQDN público en la propiedad `EXTERNAL-IP` que puedes usar para acceder a la aplicación. Este FQDN es asignado automáticamente por AWS a los servicios de tipo `LoadBalancer` que se crean en una subred pública, si quieres usar un dominio personalizado, puedes configurar Alias en Route 53 apuntando a este DNS.
+3. Accede a la aplicación a través del `EXTERNAL-IP` del servicio:
+
+    ```bash
+    curl http://<EXTERNAL-IP>
+    ```
+
+El servicio `nginx` tendrá un FQDN público en la propiedad `EXTERNAL-IP` que puedes usar para acceder a la aplicación. Este FQDN es asignado automáticamente por AWS a los servicios de tipo `LoadBalancer` que se crean en una subred pública, si quieres usar un dominio personalizado, puedes configurar un Alias en Route 53 apuntando a este DNS.
+
+Un mejor enfoque sería configurar un Ingress Controller o un Service Mesh en el clúster de EKS, esto permitirá tener un único punto de entrada para todas las aplicaciones desplegadas en el clúster y gestionar el tráfico de red de forma más eficiente.
+
+---
+
+## Puntos de mejora
+
+La implementación actual es una configuración básica de un clúster de EKS que contempla solo los recursos mínimos necesarios para que el clúster funcione correctamente. A continuación, se presentan algunas mejoras que se pueden implementar para hacer el clúster más seguro:
+
+### Seguridad
+
+- Restringir el acceso al clúster de EKS a través de una IP específica o de un rango de IPs o a través de una VPN.
+- Configurar un ACL en las subredes de EKS para controlar de forma más granular el tráfico de red.
+- Habilitar el cifrado de los datos en el control plane y en los nodos de EKS con una clave de KMS.
+- Deshabilitar el access entry configurado con la política `AmazonEKSClusterAdminPolicy` y crear roles de IAM específicos para los usuarios que necesiten acceso al clúster.
+
+### Tráfico de red
+
+- Configurar un api gateway para gestionar las peticiones HTTP.
+- Configurar un CDN para acelerar la entrega de contenido estático.
+- Configurar un WAF para proteger las aplicaciones desplegadas en el clúster de EKS.
 
 ---
 
