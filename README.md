@@ -110,7 +110,7 @@ O configurando las variables de entorno `AWS_ACCESS_KEY_ID` y `AWS_SECRET_ACCESS
 
 El servicio `nginx` tendrá un FQDN público en la propiedad `EXTERNAL-IP` que puedes usar para acceder a la aplicación. Este FQDN es asignado automáticamente por AWS a los servicios de tipo `LoadBalancer` que se crean en una subred pública, si quieres usar un dominio personalizado, puedes configurar un Alias en Route 53 apuntando a este DNS.
 
-Un mejor enfoque sería configurar un Ingress Controller o un Service Mesh en el clúster de EKS, esto permitirá tener un único punto de entrada para todas las aplicaciones desplegadas en el clúster y gestionar el tráfico de red de forma más eficiente.
+Un mejor enfoque sería configurar un **Ingress Controller** o un **Service Mesh** en el clúster de EKS, esto permitirá tener un único punto de entrada para todas las aplicaciones desplegadas en el clúster y gestionar el tráfico de red de forma más eficiente.
 
 ---
 
@@ -130,6 +130,8 @@ La implementación actual es una configuración básica de un clúster de EKS qu
 - Configurar un api gateway para gestionar las peticiones HTTP.
 - Configurar un CDN para acelerar la entrega de contenido estático.
 - Configurar un WAF para proteger las aplicaciones desplegadas en el clúster de EKS.
+
+Ya dentro del cluster de EKS puedes configurar diferentes servicios para mejorar la escalabilidad, resiliencia, observabilidad y seguridad de las aplicaciones desplegadas en el clúster.
 
 ---
 
