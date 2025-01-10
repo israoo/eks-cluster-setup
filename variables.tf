@@ -1,3 +1,8 @@
+variable "aws_user" {
+  description = "AWS user name."
+  type        = string
+}
+
 variable "eks" {
   description = "EKS cluster configuration."
   type = object({

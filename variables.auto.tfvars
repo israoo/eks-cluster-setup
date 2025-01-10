@@ -1,3 +1,5 @@
+aws_user = "cloud_user"
+
 eks = {
   cluster_name    = "eks-cluster"
   cluster_version = "1.31"
