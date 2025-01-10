@@ -28,7 +28,8 @@ resource "aws_eks_node_group" "eks_node_group" { # Crea un grupo de nodos admini
   }
 
   tags = {
-    Name = "eks-node-group"
+    Environment = var.environment
+    Name        = "eks-node-group"
   }
 
   depends_on = [

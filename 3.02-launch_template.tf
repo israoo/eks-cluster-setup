@@ -44,7 +44,8 @@ resource "aws_launch_template" "eks_worker_node_template" { # Crea una plantilla
   }
 
   tags = {
-    Name = "eks-worker-node-template"
+    Environment = var.environment
+    Name        = "eks-worker-node-template"
   }
 
   depends_on = [

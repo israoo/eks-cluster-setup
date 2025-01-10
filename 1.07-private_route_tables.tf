@@ -12,7 +12,8 @@ resource "aws_route_table" "private_route_table_2" {
   vpc_id = aws_vpc.eks_vpc.id
 
   tags = {
-    Name = "eks-private-route-table-2"
+    Environment = var.environment
+    Name        = "eks-private-route-table-2"
   }
 
   depends_on = [aws_vpc.eks_vpc]
@@ -22,7 +23,8 @@ resource "aws_route_table" "private_route_table_3" {
   vpc_id = aws_vpc.eks_vpc.id
 
   tags = {
-    Name = "eks-private-route-table-3"
+    Environment = var.environment
+    Name        = "eks-private-route-table-3"
   }
 
   depends_on = [aws_vpc.eks_vpc]

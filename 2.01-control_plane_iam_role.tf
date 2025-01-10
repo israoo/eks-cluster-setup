@@ -11,7 +11,8 @@ resource "aws_iam_role" "eks_control_plane_iam_role" { # Crea un rol de IAM para
   })
 
   tags = {
-    Name = "eks-control-plane-role"
+    Environment = var.environment
+    Name        = "eks-control-plane-role"
   }
 }
 

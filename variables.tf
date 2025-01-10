@@ -18,6 +18,11 @@ variable "eks" {
   })
 }
 
+variable "environment" {
+  description = "Environment name."
+  type        = string
+}
+
 variable "vpc" {
   description = "VPC configuration."
   type = object({

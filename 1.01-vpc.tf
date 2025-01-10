@@ -4,6 +4,7 @@ resource "aws_vpc" "eks_vpc" { # Crea una VPC para EKS
   enable_dns_support   = true # Requerido para que los nodos de EKS puedan resolver nombres de dominio de AWS
 
   tags = {
-    Name = "eks-vpc"
+    Environment = var.environment
+    Name        = "eks-vpc"
   }
 }

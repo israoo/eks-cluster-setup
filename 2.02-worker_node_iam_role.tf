@@ -11,7 +11,8 @@ resource "aws_iam_role" "eks_worker_node_iam_role" { # Crea un rol de IAM para l
   })
 
   tags = {
-    Name = "eks-worker-node-role"
+    Environment = var.environment
+    Name        = "eks-worker-node-role"
   }
 }
 

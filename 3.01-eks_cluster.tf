@@ -26,7 +26,8 @@ resource "aws_eks_cluster" "eks_cluster" { # Crea un clúster de EKS
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"] # Habilita los logs de los componentes del control plane de EKS
 
   tags = {
-    Name = var.eks.cluster_name
+    Environment = var.environment
+    Name        = var.eks.cluster_name
   }
 
   depends_on = [
