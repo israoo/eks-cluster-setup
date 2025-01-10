@@ -17,8 +17,7 @@ resource "aws_security_group" "eks_control_plane_sg" { # Crea un grupo de seguri
   }
 
   tags = {
-    Environment = var.environment
-    Name        = "eks-control-plane-sg"
+    Name = "eks-control-plane-sg"
   }
 
   depends_on = [aws_vpc.eks_vpc]
@@ -43,8 +42,7 @@ resource "aws_security_group" "eks_worker_nodes_sg" { # Crea un grupo de segurid
   }
 
   tags = {
-    Environment = var.environment
-    Name        = "eks-worker-nodes-sg"
+    Name = "eks-worker-nodes-sg"
   }
 
   depends_on = [aws_vpc.eks_vpc]

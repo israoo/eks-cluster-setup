@@ -26,8 +26,7 @@ resource "aws_eks_cluster" "eks_cluster" { # Crea un clúster de EKS
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"] # Habilita los logs de los componentes del control plane de EKS
 
   tags = {
-    Environment = var.environment
-    Name        = var.eks.cluster_name
+    Name = var.eks.cluster_name
   }
 
   depends_on = [
@@ -49,7 +48,6 @@ resource "aws_iam_openid_connect_provider" "eks_oidc" { # Crea un proveedor de i
   url             = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
 
   tags = {
-    Environment = var.environment
-    Cluster     = var.eks.cluster_name
+    Cluster = var.eks.cluster_name
   }
 }

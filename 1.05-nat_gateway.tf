@@ -3,8 +3,7 @@ resource "aws_nat_gateway" "nat_gateway_1" {    # Crea un NAT Gateway en la subr
   allocation_id = aws_eip.nat_eip_1.id          # Asocia la dirección IP elástica con el NAT Gateway
 
   tags = {
-    Environment = var.environment
-    Name        = "eks-nat-gateway-1"
+    Name = "eks-nat-gateway-1"
   }
 
   depends_on = [
@@ -18,8 +17,7 @@ resource "aws_nat_gateway" "nat_gateway_2" {
   allocation_id = aws_eip.nat_eip_2.id
 
   tags = {
-    Environment = var.environment
-    Name        = "eks-nat-gateway-2"
+    Name = "eks-nat-gateway-2"
   }
 
   depends_on = [
@@ -33,8 +31,7 @@ resource "aws_nat_gateway" "nat_gateway_3" {
   allocation_id = aws_eip.nat_eip_3.id
 
   tags = {
-    Environment = var.environment
-    Name        = "eks-nat-gateway-3"
+    Name = "eks-nat-gateway-3"
   }
 
   depends_on = [

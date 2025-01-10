@@ -2,8 +2,7 @@ resource "aws_eip" "nat_eip_1" { # Crea una dirección IP elástica para el NAT 
   domain = "vpc"                 # Especifica que la dirección IP elástica es para una VPC
 
   tags = {
-    Environment = var.environment
-    Name        = "eks-nat-eip-1"
+    Name = "eks-nat-eip-1"
   }
 }
 
@@ -11,8 +10,7 @@ resource "aws_eip" "nat_eip_2" {
   domain = "vpc"
 
   tags = {
-    Environment = var.environment
-    Name        = "eks-nat-eip-2"
+    Name = "eks-nat-eip-2"
   }
 }
 
@@ -20,7 +18,6 @@ resource "aws_eip" "nat_eip_3" {
   domain = "vpc"
 
   tags = {
-    Environment = var.environment
-    Name        = "eks-nat-eip-3"
+    Name = "eks-nat-eip-3"
   }
 }

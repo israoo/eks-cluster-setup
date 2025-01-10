@@ -5,7 +5,6 @@ resource "aws_subnet" "private_subnet_1" {     # Crea la subred privada 1
   map_public_ip_on_launch = false # No permite que las instancias en la subred obtengan una IP pública
 
   tags = {
-    Environment                       = var.environment
     Name                              = "eks-private-subnet-1"
     "kubernetes.io/role/internal-elb" = "1" # Permite que los servicios de Kubernetes de tipo LoadBalancer (load balancers internos) se desplieguen en esta subred
   }
@@ -20,7 +19,6 @@ resource "aws_subnet" "private_subnet_2" {
   map_public_ip_on_launch = false
 
   tags = {
-    Environment                       = var.environment
     Name                              = "eks-private-subnet-2"
     "kubernetes.io/role/internal-elb" = "1"
   }
@@ -35,7 +33,6 @@ resource "aws_subnet" "private_subnet_3" {
   map_public_ip_on_launch = false
 
   tags = {
-    Environment                       = var.environment
     Name                              = "eks-private-subnet-3"
     "kubernetes.io/role/internal-elb" = "1"
   }
