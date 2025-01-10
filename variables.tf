@@ -23,6 +23,11 @@ variable "environment" {
   type        = string
 }
 
+variable "service" {
+  description = "Service name."
+  type        = string
+}
+
 variable "vpc" {
   description = "VPC configuration."
   type = object({
