@@ -128,7 +128,6 @@ La implementación actual es una configuración básica de un clúster de EKS qu
 ### Tráfico de red
 
 - Configurar un api gateway para gestionar las peticiones HTTP.
-- Configurar un CDN para acelerar la entrega de contenido estático.
 - Configurar un WAF para proteger las aplicaciones desplegadas en el clúster de EKS.
 
 Ya dentro del cluster de EKS puedes configurar diferentes servicios para mejorar la escalabilidad, resiliencia, observabilidad y seguridad de las aplicaciones desplegadas en el clúster.
