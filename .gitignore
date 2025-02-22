@@ -4,7 +4,7 @@
 *.tfstate.*
 *.override.tfvars
 *.lock.hcl
-*.tfplan
+*.binary
 
 # OS
 *.DS_Store

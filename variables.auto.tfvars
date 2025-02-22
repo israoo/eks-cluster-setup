@@ -2,7 +2,7 @@ aws_user = "cloud_user"
 
 eks = {
   cluster_name    = "eks-cluster"
-  cluster_version = "1.31"
+  cluster_version = "1.32"
   worker_nodes = {
     node_group_name = "eks-managed-node-group"
     ebs_volume = {

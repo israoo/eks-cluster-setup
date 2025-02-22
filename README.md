@@ -56,13 +56,13 @@ O configurando las variables de entorno `AWS_ACCESS_KEY_ID` y `AWS_SECRET_ACCESS
 4. Crea el plan de ejecución:
 
     ```bash
-    terraform plan -out=eks-cluster-setup.tfplan
+    terraform plan -out=eks-cluster-setup.binary
     ```
 
 5. Aplica el plan de ejecución:
 
     ```bash
-    terraform apply eks-cluster-setup.tfplan
+    terraform apply eks-cluster-setup.binary
     ```
 
     Este proceso puede tardar varios minutos en completarse. Una vez finalizado, se mostrarán las salidas de Terraform, incluyendo la URL de acceso al clúster de EKS.
