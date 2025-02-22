@@ -6,8 +6,9 @@ variable "aws_user" {
 variable "eks" {
   description = "EKS cluster configuration."
   type = object({
-    cluster_name    = string
-    cluster_version = string
+    cluster_name      = string
+    cluster_version   = string
+    service_ipv4_cidr = string
     worker_nodes = object({
       node_group_name = string
       ebs_volume = object({

@@ -23,6 +23,10 @@ resource "aws_eks_cluster" "eks_cluster" { # Crea un clúster de EKS
     endpoint_private_access = true # Habilita el acceso privado al API server de EKS (para acceder al clúster desde la VPC)
   }
 
+  kubernetes_network_config {
+    service_ipv4_cidr = var.eks.service_ipv4_cidr # CIDR block para el rango de IPs de los servicios de Kubernetes
+  }
+
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"] # Habilita los logs de los componentes del control plane de EKS
 
   tags = {
