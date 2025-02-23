@@ -7,12 +7,12 @@ resource "aws_eks_addon" "ebs_csi_driver" { # Instala el add-on EBS CSI Driver e
   service_account_role_arn    = aws_iam_role.ebs_csi_driver_role.arn # Asocia el rol de IAM del controlador CSI de EBS con el add-on (agrega un annotation al service account del controlador CSI de EBS)
 
   configuration_values = jsonencode({ # Configura el add-on EBS CSI Driver
-    controller: {
+    controller : {
       sdkDebugLog = false # Habilita o deshabilita el registro de depuración del controlador (útil para depurar problemas con el controlador)
     }
-    sidecars: {
-      snapshotter: {
-        forceEnable: false # Habilita o deshabilita el snapshotter sidecar (útil para habilitar la creación de snapshots de volúmenes EBS)
+    sidecars : {
+      snapshotter : {
+        forceEnable : false # Habilita o deshabilita el snapshotter sidecar (útil para habilitar la creación de snapshots de volúmenes EBS)
       }
     }
   })
