@@ -1,4 +1,4 @@
-resource "kubernetes_storage_class" "ebs_sc" { # Crea una clase de almacenamiento para volúmenes EBS
+resource "kubernetes_storage_class" "eks_ebs_sc" { # Crea una clase de almacenamiento para volúmenes EBS
   metadata {
     name = var.eks.ebs_storage_class.name
     annotations = {
