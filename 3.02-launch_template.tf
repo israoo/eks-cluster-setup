@@ -7,10 +7,15 @@ resource "aws_launch_template" "eks_worker_node_template" { # Crea una plantilla
   instance_type = var.eks.worker_nodes.instance_type
   image_id      = data.aws_ssm_parameter.eks_ami.value
   user_data = base64encode(templatefile("${path.module}/eks_user_data.sh", { # Configura el script de inicio de los worker nodes de EKS
-    eks_cluster_name     = var.eks.cluster_name
-    eks_cluster_endpoint = aws_eks_cluster.eks_cluster.endpoint
-    eks_cluster_ca       = aws_eks_cluster.eks_cluster.certificate_authority.0.data
-    vpc_cidr             = var.vpc.cidr_block
+    eks_cluster_ca         = aws_eks_cluster.eks_cluster.certificate_authority.0.data
+    eks_cluster_cidr       = var.eks.service_ipv4_cidr
+    eks_cluster_dns_ip     = local.eks_cluster_dns_ip
+    eks_cluster_endpoint   = aws_eks_cluster.eks_cluster.endpoint
+    eks_cluster_name       = var.eks.cluster_name
+    eks_max_pods_per_node  = var.eks.worker_nodes.max_pods_per_node
+    eks_node_ami_id        = data.aws_ssm_parameter.eks_ami.value
+    eks_node_capacity_type = var.eks.worker_nodes.capacity_type
+    eks_node_group_name    = var.eks.worker_nodes.node_group_name
   }))
 
   block_device_mappings { # Configura el volumen EBS (disco duro) para los worker nodes

@@ -10,16 +10,17 @@ variable "eks" {
     cluster_version   = string
     service_ipv4_cidr = string
     worker_nodes = object({
-      node_group_name = string
+      capacity_type = string
       ebs_volume = object({
         size = number
         type = string
       })
       instance_type              = string
-      desired_capacity           = number
-      min_size                   = number
+      max_pods_per_node          = number
       max_size                   = number
       max_unavailable_percentage = number
+      min_size                   = number
+      node_group_name            = string
     })
   })
 }

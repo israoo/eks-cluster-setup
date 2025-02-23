@@ -9,9 +9,9 @@ resource "aws_eks_node_group" "eks_node_group" { # Crea un grupo de nodos admini
   ]
 
   scaling_config { # Configura el escalado automático de los worker nodes (para ajustar la cantidad de worker nodes según la demanda)
-    desired_size = var.eks.worker_nodes.desired_capacity
-    min_size     = var.eks.worker_nodes.min_size
+    desired_size = var.eks.worker_nodes.min_size
     max_size     = var.eks.worker_nodes.max_size
+    min_size     = var.eks.worker_nodes.min_size
   }
 
   launch_template { # Asocia el launch template con el grupo de nodos (para definir la configuración de los worker nodes)
@@ -38,4 +38,8 @@ resource "aws_eks_node_group" "eks_node_group" { # Crea un grupo de nodos admini
     aws_subnet.private_subnet_2,
     aws_subnet.private_subnet_3,
   ]
+
+  lifecycle {
+    ignore_changes = [scaling_config[0].desired_size] # Permite cambios externos en el tamaño deseado del grupo de nodos (por ejemplo, Application Autoscaling)
+  }
 }
