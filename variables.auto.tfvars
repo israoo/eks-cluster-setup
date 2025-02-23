@@ -1,8 +1,29 @@
 aws_user = "cloud_user"
 
 eks = {
-  cluster_name      = "eks-cluster"
-  cluster_version   = "1.32"
+  addons = {
+    aws_ebs_csi_driver = {
+      version = "v1.39.0-eksbuild.1"
+    }
+    coredns = {
+      version = "v1.11.4-eksbuild.2"
+    }
+    kube_proxy = {
+      version = "v1.32.0-eksbuild.2"
+    }
+    vpc_cni = {
+      version = "v1.19.2-eksbuild.5"
+    }
+  }
+  cluster_name    = "eks-cluster"
+  cluster_version = "1.32"
+  ebs_storage_class = {
+    allow_volume_expansion = true
+    name                   = "ebs-sc"
+    reclaim_policy         = "Delete"
+    type                   = "gp3"
+    volume_binding_mode    = "WaitForFirstConsumer"
+  }
   service_ipv4_cidr = "172.20.0.0/16"
   worker_nodes = {
     capacity_type = "ON_DEMAND"

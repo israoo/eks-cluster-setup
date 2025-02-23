@@ -6,8 +6,29 @@ variable "aws_user" {
 variable "eks" {
   description = "EKS cluster configuration."
   type = object({
-    cluster_name      = string
-    cluster_version   = string
+    addons = object({
+      aws_ebs_csi_driver = object({
+        version = string
+      })
+      coredns = object({
+        version = string
+      })
+      kube_proxy = object({
+        version = string
+      })
+      vpc_cni = object({
+        version = string
+      })
+    })
+    cluster_name    = string
+    cluster_version = string
+    ebs_storage_class = object({
+      allow_volume_expansion = bool
+      name                   = string
+      reclaim_policy         = string
+      type                   = string
+      volume_binding_mode    = string
+    })
     service_ipv4_cidr = string
     worker_nodes = object({
       capacity_type = string
