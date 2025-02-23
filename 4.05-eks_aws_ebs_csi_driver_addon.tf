@@ -18,4 +18,8 @@ resource "aws_eks_addon" "ebs_csi_driver" { # Instala el add-on EBS CSI Driver e
   })
 
   depends_on = [aws_eks_cluster.eks_cluster]
+
+  timeouts {
+    create = local.eks_addons_create_timeout
+  }
 }
