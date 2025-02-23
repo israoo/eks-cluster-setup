@@ -6,7 +6,6 @@ locals {
   }
 
   ebs_csi_driver = {
-    chart_version        = "2.40.0"
     namespace_name       = "kube-system"
     role_name            = "eks-ebs-csi-driver-role"
     service_account_name = "ebs-csi-controller-sa"
