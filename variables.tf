@@ -13,6 +13,9 @@ variable "eks" {
       coredns = object({
         version = string
       })
+      eks_node_monitoring_agent = object({
+        version = string
+      })
       kube_proxy = object({
         version = string
       })
@@ -42,6 +45,7 @@ variable "eks" {
       max_unavailable_percentage = number
       min_size                   = number
       node_group_name            = string
+      node_repair_enabled        = bool
     })
   })
 }

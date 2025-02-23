@@ -8,6 +8,9 @@ eks = {
     coredns = {
       version = "v1.11.4-eksbuild.2"
     }
+    eks_node_monitoring_agent = {
+      version = "v1.0.2-eksbuild.2"
+    }
     kube_proxy = {
       version = "v1.32.0-eksbuild.2"
     }
@@ -37,6 +40,7 @@ eks = {
     max_unavailable_percentage = 50
     min_size                   = 1
     node_group_name            = "eks-managed-node-group"
+    node_repair_enabled        = true
   }
 }
 
