@@ -41,13 +41,3 @@ resource "aws_eks_cluster" "eks_cluster" { # Crea un clúster de EKS
     aws_subnet.private_subnet_3,
   ]
 }
-
-resource "aws_iam_openid_connect_provider" "eks_oidc" { # Crea un proveedor de identidad OpenID Connect (OIDC) para el clúster de EKS (necesario para habilitar el uso de roles de IAM en los pods de Kubernetes - IRSA)
-  client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = [data.tls_certificate.this.certificates.0.sha1_fingerprint]
-  url             = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
-
-  tags = {
-    Cluster = var.eks.cluster_name
-  }
-}
