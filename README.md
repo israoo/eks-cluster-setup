@@ -11,7 +11,9 @@ Este repositorio contiene los recursos necesarios para implementar un **clúster
 ├── 1.xx-*.tf                 # Recursos de red
 ├── 2.xx-*.tf                 # Roles y políticas de IAM
 ├── 3.xx-*.tf                 # Recursos de EKS y nodos
+├── 4.xx-*.tf                 # Complementos de EKS
 ├── eks_user_data.sh          # Script de inicio para los nodos
+├── locals.tf                 # Variables locales
 ├── outputs.tf                # Salidas de Terraform
 ├── providers.tf              # Configuración del provider de AWS
 ├── variables.auto.tfvars     # Variables por defecto

@@ -6,6 +6,9 @@
 *.lock.hcl
 *.binary
 
+# Infracost
+.infracost
+
 # OS
 *.DS_Store
 
